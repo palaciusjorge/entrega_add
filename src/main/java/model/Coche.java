@@ -75,5 +75,17 @@ public class Coche {
     public void setAnho(int anho) {
         this.anho = anho;
     }
+
+    @Override
+    public String toString() {
+        return "Coche{" +
+                "id=" + id +
+                ", idCliente=" + idCliente +
+                ", matricula='" + matricula + '\'' +
+                ", marca='" + marca + '\'' +
+                ", modelo='" + modelo + '\'' +
+                ", anho=" + anho +
+                '}';
+    }
 }
 

@@ -43,5 +43,14 @@ public class Reparacion {
     public void setIdMecanico(int idMecanico) {
         this.idMecanico = idMecanico;
     }
+
+    @Override
+    public String toString() {
+        return "Reparacion{" +
+                "id=" + id +
+                ", idCoche=" + idCoche +
+                ", idMecanico=" + idMecanico +
+                '}';
+    }
 }
 
