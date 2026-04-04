@@ -4,10 +4,9 @@ import database.DatabaseConnection;
 import model.Cliente;
 
 import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteDao {
+public class ClienteDAO {
 
     // INSERTAR CLIENTE
     public void insertarCliente(Cliente cliente) {

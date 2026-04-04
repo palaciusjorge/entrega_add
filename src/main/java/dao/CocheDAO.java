@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.List;
 
 
-public class CocheDao {
+public class CocheDAO {
 
     //INSERTAR COCHE
 
