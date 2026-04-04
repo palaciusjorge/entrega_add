@@ -54,7 +54,7 @@ public class FacturaDAO {
         return lista;
     }
 
-    // LISTAR FACTURAS POR CLIENTE (JOIN BIEN HECHO)
+    // LISTAR FACTURAS POR CLIENTE
     public List<Factura> listarFacturasPorCliente(int idCliente) {
         List<Factura> lista = new ArrayList<>();
 
