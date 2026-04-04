@@ -10,7 +10,7 @@ public class PiezaReparacion {
 
     // Constructor vacío
 
-    public PiezaReparacion() {}
+    public PiezaReparacion(int idPiezaReparacion, int idReparacion, int idPieza, int cantidad) {}
 
     // Constructor con parámetros
 
