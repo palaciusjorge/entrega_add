@@ -1,78 +1,49 @@
-import dao.*;
-import model.*;
+import ui.*;
+
+import java.util.Scanner;
 
 public class Main {
+
+    static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
 
-        ClienteDAO clienteDAO = new ClienteDAO();
-        CocheDAO cocheDAO = new CocheDAO();
-        MecanicoDAO mecanicoDAO = new MecanicoDAO();
-        ReparacionDAO reparacionDAO = new ReparacionDAO();
-        FacturaDAO facturaDAO = new FacturaDAO();
-        PiezaDAO piezaDAO = new PiezaDAO();
-        PiezaReparacionDAO piezaReparacionDAO = new PiezaReparacionDAO();
+        int opcion;
 
-        try {
-            System.out.println("🔹 INICIO TEST COMPLETO 🔹");
+        do {
+            System.out.println("\n===== TALLER MECÁNICO =====");
+            System.out.println("1. Clientes");
+            System.out.println("2. Coches");
+            System.out.println("3. Mecánicos");
+            System.out.println("4. Reparaciones");
+            System.out.println("5. Facturas");
+            System.out.println("6. Piezas");
+            System.out.println("0. Salir");
 
-            // 🔹 1. CLIENTE
-            Cliente cliente = new Cliente(0, "Test", "Final", "600000000", "test@test.com", "TestDir");
-            clienteDAO.insertarCliente(cliente);
-            Cliente c = clienteDAO.listarClientes().get(clienteDAO.listarClientes().size() - 1);
+            System.out.print("Selecciona una opción: ");
+            opcion = sc.nextInt();
 
-            // 🔹 2. COCHE
-            Coche coche = new Coche(0, c.getId(), "TEST999", "MarcaTest", "ModeloTest", 2024);
-            cocheDAO.insertarCoche(coche);
-            Coche co = cocheDAO.listarCochesPorCliente(c.getId()).get(0);
+            switch (opcion) {
 
-            // 🔹 3. MECANICO
-            Mecanico mecanico = new Mecanico(0, "MecTest", "General", "611111111");
-            mecanicoDAO.insertarMecanico(mecanico);
-            Mecanico m = mecanicoDAO.listarMecanicos()
-                    .get(mecanicoDAO.listarMecanicos().size() - 1);
+                case 1 -> MenuClientes.mostrar();
 
-            // 🔹 4. REPARACION
-            Reparacion reparacion = new Reparacion(0, co.getId(), m.getId());
-            reparacionDAO.insertarReparacion(reparacion);
-            Reparacion r = reparacionDAO.listarReparaciones()
-                    .get(reparacionDAO.listarReparaciones().size() - 1);
+                case 2 -> MenuCoche.mostrar();
 
-            // 🔹 5. PIEZA
-            Pieza pieza = new Pieza(0, "PiezaTest", 50.0, 10);
-            piezaDAO.insertarPieza(pieza);
-            Pieza p = piezaDAO.listarPiezas()
-                    .get(piezaDAO.listarPiezas().size() - 1);
+                case 3 -> MenuMecanico.mostrar();
 
-            // 🔹 6. RELACION PIEZA-REPARACION
-            piezaReparacionDAO.anadirPiezaAReparacion(r.getId(), p.getId(), 2);
+                case 4 -> MenuReparacion.mostrar();
 
-            System.out.println("🔹 Piezas en reparación:");
-            piezaReparacionDAO.listarPiezasDeReparacion(r.getId())
-                    .forEach(System.out::println);
+                case 5 -> MenuFactura.mostrar();
 
-            // 🔹 7. FACTURA
-            facturaDAO.insertarFactura(r.getId(), 200.0);
+                case 6 -> MenuPieza.mostrar();
 
-            System.out.println("🔹 Facturas del cliente:");
-            facturaDAO.listarFacturasPorCliente(c.getId())
-                    .forEach(f -> System.out.println("Factura ID: " + f.getId()));
+                case 0 -> System.out.println("Saliendo del sistema...");
 
-            Factura f = facturaDAO.listarFacturasPorReparacion(r.getId()).get(0);
+                default -> System.out.println("Opción no válida");
+            }
 
-            // 🔹 8. LIMPIEZA DE DATOS DE PRUEBA
-            facturaDAO.eliminarFactura(f.getId());
-            piezaReparacionDAO.eliminarPiezaDeReparacion(r.getId(), p.getId());
-            reparacionDAO.eliminarReparacion(r.getId());
-            cocheDAO.eliminarCoche(co.getId());
-            clienteDAO.eliminarCliente(c.getId());
-            mecanicoDAO.eliminarMecanico(m.getId());
-            piezaDAO.eliminarPieza(p.getId());
+        } while (opcion != 0);
 
-            System.out.println("🧹 TEST COMPLETADO Y LIMPIO");
-
-        } catch (Exception e) {
-            System.out.println("❌ Error en el test: " + e.getMessage());
-            e.printStackTrace();
-        }
+        sc.close();
     }
 }
