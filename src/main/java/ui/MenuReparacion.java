@@ -26,6 +26,8 @@ public class MenuReparacion {
             System.out.println("5. Eliminar reparación");
             System.out.println("0. Volver");
 
+            System.out.print("Selecciona una opción: ");
+
             opcion = sc.nextInt();
             sc.nextLine();
 

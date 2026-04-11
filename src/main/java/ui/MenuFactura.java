@@ -20,6 +20,8 @@ public class MenuFactura {
             System.out.println("4. Eliminar por ID");
             System.out.println("0. Volver");
 
+            System.out.print("Selecciona una opción: ");
+
             opcion = sc.nextInt();
             sc.nextLine();
 

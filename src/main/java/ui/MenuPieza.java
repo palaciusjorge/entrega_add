@@ -24,6 +24,8 @@ public class MenuPieza {
             System.out.println("5. Eliminar pieza");
             System.out.println("0. Volver");
 
+            System.out.print("Selecciona una opción: ");
+
             opcion = sc.nextInt();
             sc.nextLine();
 

@@ -22,6 +22,8 @@ public class MenuCoche {
             System.out.println("3. Eliminar coche");
             System.out.println("0. Volver");
 
+            System.out.print("Selecciona una opción: ");
+
             opcion = sc.nextInt();
             sc.nextLine();
 

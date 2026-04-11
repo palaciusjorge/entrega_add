@@ -21,6 +21,8 @@ public class MenuClientes {
             System.out.println("3. Eliminar");
             System.out.println("0. Volver");
 
+            System.out.print("Selecciona una opción: ");
+
             opcion = sc.nextInt();
             sc.nextLine();
 
@@ -36,7 +38,13 @@ public class MenuClientes {
                     System.out.print("Email: ");
                     String email = sc.nextLine();
 
-                    Cliente cliente = new Cliente(0, nombre, apellido, "", email, "");
+                    System.out.print("Teléfono: ");
+                    String telefono = sc.nextLine();
+
+                    System.out.print("Dirección: ");
+                    String direccion = sc.nextLine();
+
+                    Cliente cliente = new Cliente(0, nombre, apellido, telefono, email, direccion);
                     clienteDAO.insertarCliente(cliente);
                 }
 

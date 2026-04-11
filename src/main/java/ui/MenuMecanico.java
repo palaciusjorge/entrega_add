@@ -21,6 +21,8 @@ public class MenuMecanico {
             System.out.println("3. Eliminar por ID");
             System.out.println("0. Volver");
 
+            System.out.print("Selecciona una opción: ");
+
             opcion = sc.nextInt();
             sc.nextLine();
 
